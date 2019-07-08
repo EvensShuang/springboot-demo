@@ -1,0 +1,238 @@
+spring:
+  application:
+    name: springboot-demo
+  profiles:
+    active: dev_wh_local
+  couchbase:
+    bootstrap-hosts:
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/javascript,text/css,text/xml,text/plain
+    min-response-size: 2048
+  tomcat:
+    accept-count: 400
+    uri-encoding: utf-8
+    min-spare-threads: 25
+    max-threads: 400
+  connection-timeout: 20000ms
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000（访问超时配置，默认是1000ms）
+      execution:
+        timeout:
+          enabled: false
+      fallback:
+         enabled: true
+      circuitBreaker:
+          sleepWindowInMilliseconds: 5000
+      circuitBreaker:
+        requestVolumeThreshold: 20
+
+---
+spring:
+  profiles: dev_wh_local
+  datasource:
+    rgcbs-read:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_wh_test
+      password: mph_wh_test123!@#$
+      initialSize: 1
+      minIdle: 1
+      maxActive: 10
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+    rgcbs-write:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_wh_test
+      password: mph_wh_test123!@#$
+      initialSize: 1
+      minIdle: 1
+      maxActive: 10
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+#  dubbo:
+#    protocol: dubbo
+#    appname: wdzs-api-dubbo-consumer
+#    registry: zookeeper://192.168.19.124:2181
+#  cloud:
+#    zookeeper:
+#      discovery:
+#        register: false
+#        enabled: true
+#      connect-string: 192.168.19.124:2181
+server:
+    port: 8080
+logging:
+  config: classpath:logback-dev.xml
+  level:
+    com.rogranec.service.*.dao.*: debug
+---
+spring:
+  profiles: dev_wh
+  datasource:
+    rgcbs-read:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_wh_test
+      password: mph_wh_test123!@#$
+      initialSize: 5
+      minIdle: 5
+      maxActive: 30
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+    rgcbs-write:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_wh_test
+      password: mph_wh_test123!@#$
+      initialSize: 5
+      minIdle: 5
+      maxActive: 30
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+  dubbo:
+    protocol: dubbo
+    appname: wdzs-api-dubbo-consumer
+    registry: zookeeper://192.168.19.124:2181
+  cloud:
+    zookeeper:
+      discovery:
+        register: false
+        enabled: true
+      connect-string: 192.168.19.124:2181
+server:
+    port: 8080
+logging:
+  config: classpath:logback-dev.xml
+---
+spring:
+  profiles: test
+  datasource:
+    rgcbs-read:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://mysql.test.mph.rgec.local:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_web
+      password: mph_web101
+      initialSize: 5
+      minIdle: 5
+      maxActive: 30
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+    rgcbs-write:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://mysql.test.mph.rgec.local:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
+      username: mph_web
+      password: mph_web101
+      initialSize: 5
+      minIdle: 5
+      maxActive: 30
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+  cloud:
+    zookeeper:
+      connect-string: zookeeper.test.mph.rgec.local:8096
+      discovery:
+        enabled: true
+        register: false
+  dubbo:
+    protocol: dubbo
+    appname: wdzs-api-dubbo-consumer
+    registry: zookeeper://zookeeper.test.mph.rgec.local:8096
+server:
+    port: 8080
+logging:
+  config: classpath:logback-test.xml
+---
+spring:
+  profiles: prd
+  datasource:
+    rgcbs-read:
+      driverClassName: com.mysql.jdbc.Driver
+      url: woiod1N0sFF9mFg6KFNqtMaXZgWRm28904Ul561VXOc00rM+N9cgoj2/r6TPIRgPcU2bvNDk17hNumkmLhvoQJ/ELmMulJirCxdbC6cO82lNsp3b3Io/HcHRUUZB50O3yvU5rpArB8p7hzvHtrBVAA==
+      username: CC9AkDEu1Ow=
+      password: bnlfbHUKMO0olPiMuRkqUVf70WQl0IGsvHasq9vdcb36Rv9+zteIYRGYrSVfoWZ9Qd5zry+fPpg=
+      initialSize: 10
+      minIdle: 10
+      maxActive: 50
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+    rgcbs-write:
+      driverClassName: com.mysql.jdbc.Driver
+      url: woiod1N0sFF9mFg6KFNqtMaXZgWRm28904Ul561VXOc00rM+N9cgoj2/r6TPIRgPcU2bvNDk17hNumkmLhvoQJ/ELmMulJirCxdbC6cO82lNsp3b3Io/HcHRUUZB50O3yvU5rpArB8p7hzvHtrBVAA==
+      username: CC9AkDEu1Ow=
+      password: bnlfbHUKMO0olPiMuRkqUVf70WQl0IGsvHasq9vdcb36Rv9+zteIYRGYrSVfoWZ9Qd5zry+fPpg=
+      initialSize: 10
+      minIdle: 10
+      maxActive: 50
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      filters: stat
+  cloud:
+    zookeeper:
+      connect-string: node1.common.zk.prd.mph.rgec.local:8946,node2.common.zk.prd.mph.rgec.local:8947,node3.common.zk.prd.mph.rgec.local:8948
+      discovery:
+        enabled: true
+        register: false
+  dubbo:
+    protocol: dubbo
+    appname: wdzs-api-dubbo-consumer
+    registry: zookeeper://node1.common.zk.prd.mph.rgec.local:8946?backup=node2.common.zk.prd.mph.rgec.local:8947,node3.common.zk.prd.mph.rgec.local:8948
+server:
+    port: 8080
+logging:
+  config: classpath:logback-prd.xml
