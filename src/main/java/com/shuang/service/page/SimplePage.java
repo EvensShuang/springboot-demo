@@ -1,4 +1,4 @@
-package com.rograndec.service.page;
+package com.shuang.service.page;
 
 import io.swagger.annotations.ApiModel;
 

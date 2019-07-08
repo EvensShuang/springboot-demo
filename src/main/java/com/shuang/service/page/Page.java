@@ -1,4 +1,4 @@
-package com.rograndec.service.page;
+package com.shuang.service.page;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,7 +9,7 @@ import java.util.List;
  * 列表分页。包含list属性。
  */
 @ApiModel(value = "Page")
-public class Page<T> extends SimplePage implements java.io.Serializable, Paginable {
+public class Page<T> extends com.shuang.service.page.SimplePage implements java.io.Serializable, com.shuang.service.page.Paginable {
 
     private static final long serialVersionUID = 3684754322692323329L;
 

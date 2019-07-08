@@ -1,7 +1,9 @@
-package com.rograndec.app;
+package com.shuang.app;
 
-import java.nio.charset.StandardCharsets;
-
+import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -14,17 +16,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
-@ComponentScan("com.rograndec")
+@ComponentScan("com.shuang")
 @EnableDubboConfiguration
 @EnableDiscoveryClient
 @EnableHystrix

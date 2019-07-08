@@ -1,9 +1,9 @@
-package com.rograndec.controller.demo;
+package com.shuang.controller.demo;
 
-import com.rograndec.controller.base.BaseController;
-import com.rograndec.service.demo.entity.Demo;
-import com.rograndec.service.page.Page;
-import com.rograndec.util.RestResult;
+import com.shuang.controller.base.BaseController;
+import com.shuang.service.demo.entity.Demo;
+import com.shuang.service.page.Page;
+import com.shuang.util.RestResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

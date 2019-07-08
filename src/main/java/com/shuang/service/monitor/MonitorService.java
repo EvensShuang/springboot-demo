@@ -1,4 +1,4 @@
-package com.rograndec.service.monitor;
+package com.shuang.service.monitor;
 
 import java.util.Date;
 

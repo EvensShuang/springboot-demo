@@ -1,8 +1,8 @@
-package com.rograndec.service.monitor.dao.read;
-
-import java.util.Date;
+package com.shuang.service.monitor.dao.read;
 
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
 
 /**
  * <描述>

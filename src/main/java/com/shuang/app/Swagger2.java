@@ -1,4 +1,4 @@
-package com.rograndec.app;
+package com.shuang.app;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +30,7 @@ public class Swagger2 {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.rograndec.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.shuang.controller"))
 				.paths(PathSelectors.any())
 				.build();
 	}

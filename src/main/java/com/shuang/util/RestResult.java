@@ -1,4 +1,4 @@
-package com.rograndec.util;
+package com.shuang.util;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

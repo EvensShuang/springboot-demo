@@ -1,4 +1,4 @@
-package com.rograndec.config;
+package com.shuang.config;
 
 import javax.sql.DataSource;
 
@@ -22,7 +22,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  * @Version: 1.0
  */
 @Configuration
-@MapperScan(basePackages = {"com.rograndec.service.*.dao.read"}, sqlSessionFactoryRef = "rgcbsReadSqlSessionFactory")
+@MapperScan(basePackages = {"com.shuang.service.*.dao.read"}, sqlSessionFactoryRef = "rgcbsReadSqlSessionFactory")
 public class RgcbsReadDSConfig {
 	@Autowired
 	@Qualifier("rgcbsReadDS")

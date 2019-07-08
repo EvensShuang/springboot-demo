@@ -1,11 +1,9 @@
-package com.rograndec.service.demo.entity;
+package com.shuang.service.demo.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+
+import java.io.Serializable;
 
 @ApiModel(value = "Demo", description = "Demo")
 public class Demo implements Serializable {

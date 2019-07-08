@@ -1,6 +1,6 @@
-package com.rograndec.controller.monitor;
+package com.shuang.controller.monitor;
 
-import com.rograndec.service.monitor.MonitorService;
+import com.shuang.service.monitor.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
