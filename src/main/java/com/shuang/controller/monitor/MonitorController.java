@@ -19,6 +19,7 @@ import java.util.Map;
 @Controller
 @ApiIgnore
 public class MonitorController {
+
 	@Autowired
 	private MonitorService monitorService;
 
@@ -48,6 +49,24 @@ public class MonitorController {
 		} catch (Exception e) {
 			result.put("success", "false");
 		}
+		return result;
+	}
+
+
+	/**
+	 * 新版心跳程序，通过servcie从数据库抓取当前时间
+	 *
+	 * @return JSON
+	 * @author xuan.zhou
+	 */
+	@RequestMapping(value = {"/test/threadSafety.do"}, method = {RequestMethod.GET,
+			RequestMethod.POST})
+	public @ResponseBody
+	Map<String, Object> threadSafety(HttpServletRequest request,
+										  HttpServletResponse response,
+										  Map<String, Object> modelMap) throws Exception {
+		Map<String, Object> result = new HashMap<String, Object>();
+
 		return result;
 	}
 }
