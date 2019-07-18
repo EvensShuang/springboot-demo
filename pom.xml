@@ -215,12 +215,7 @@
             <artifactId>thumbnailator</artifactId>
             <version>0.4.8</version>
         </dependency>
-        <!---->
-        <dependency>
-            <groupId>fakepath</groupId>
-            <artifactId>sensitive-words-filter</artifactId>
-            <version>3.0</version>
-        </dependency>
+
         <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.spring.boot</groupId>
