@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shuang.service.demo.dao.write.DemoWriteDao" >
-  
-  <select id="addDemo" resultType="int">
+<mapper namespace="com.shuang.service.demo.dao.write.DemoWriteDao">
 
-  </select>
+    <insert id="addDemo" parameterType="com.shuang.service.demo.entity.Demo" useGeneratedKeys="true" keyProperty="aid">
+      INSERT INTO demo (
+    	aid,
+    	title,
+    	author
+) VALUES (
+    	#{aid},
+    	#{title},
+    	#{author}
+)
+  </insert>
+
+    <update id="updateDemo" parameterType="com.shuang.service.demo.entity.Demo">
+		UPDATE  demo set title=#{title},author=#{author}
+		where aid=#{aid}
+	</update>
 
 </mapper>

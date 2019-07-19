@@ -33,7 +33,7 @@ public class RgcbsWriteDSConfig {
 	public SqlSessionFactory rgcbsWriteSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(rgcbsWriteDS);
-		factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/monitor/*/write/*.xml"));
+		factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/rgcbs/*/write/*.xml"));
 		return factoryBean.getObject();
 
 	}

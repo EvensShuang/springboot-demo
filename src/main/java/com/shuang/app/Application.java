@@ -13,6 +13,7 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -27,6 +28,7 @@ import java.nio.charset.StandardCharsets;
 @EnableDiscoveryClient
 @EnableHystrix
 @EnableHystrixDashboard
+@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 public class Application implements WebMvcConfigurer {
 
     public static void main(String[] args) {

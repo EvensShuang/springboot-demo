@@ -40,9 +40,9 @@ spring:
   datasource:
     rgcbs-read:
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
-      username: mph_wh_test
-      password: mph_wh_test123!@#$
+      url: jdbc:mysql://192.168.19.14:3306/erp_sync?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: erp_sync
+      password: erp_sync1234!@#$
       initialSize: 1
       minIdle: 1
       maxActive: 10
@@ -56,9 +56,9 @@ spring:
       filters: stat
     rgcbs-write:
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.19.14:3306/rg_cbs?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull
-      username: mph_wh_test
-      password: mph_wh_test123!@#$
+      url: jdbc:mysql://192.168.19.14:3306/erp_sync?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: erp_sync
+      password: erp_sync1234!@#$
       initialSize: 1
       minIdle: 1
       maxActive: 10

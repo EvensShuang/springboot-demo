@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -17,6 +18,8 @@ import javax.sql.DataSource;
  * @Version: 1.0
  */
 @Configuration
+@EnableTransactionManagement(proxyTargetClass = true)
+
 public class DataSourceConfig {
 
 
