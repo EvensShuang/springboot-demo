@@ -1,6 +1,7 @@
 package com.shuang.hadoop.mr;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -23,11 +24,10 @@ public class FlowCountSort {
 
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
-//		conf.set("mapreduce.framework.name", "local");
-//		conf.set("fs.defaultFs", "file://");
+		conf.set("mapreduce.framework.name", "yarn");
+		conf.set("yarn.resoucemanager.hostname", "node1");
 		Job job = Job.getInstance(conf);
 
-		/*job.setJar("/home/hadoop/wc.jar");*/
 		//指定本程序的jar包所在的本地路径
 		job.setJarByClass(FlowCountSort.class);
 
@@ -48,10 +48,10 @@ public class FlowCountSort {
 		//指定job的输出结果所在目录
 
 		Path outPath = new Path(args[1]);
-		/*FileSystem fs = FileSystem.get(conf);
+		FileSystem fs = FileSystem.get(conf);
 		if(fs.exists(outPath)){
 			fs.delete(outPath, true);
-		}*/
+		}
 		FileOutputFormat.setOutputPath(job, outPath);
 
 		//将job中配置的相关参数，以及job所用的java类所在的jar包，提交给yarn去运行
