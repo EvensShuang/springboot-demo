@@ -25,7 +25,7 @@ public class FlowCountSort {
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
 		conf.set("mapreduce.framework.name", "yarn");
-		conf.set("yarn.resoucemanager.hostname", "node1");
+		conf.set("yarn.resoucemanager.hostname", "192.168.33.3");
 		Job job = Job.getInstance(conf);
 
 		//指定本程序的jar包所在的本地路径

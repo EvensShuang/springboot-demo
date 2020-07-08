@@ -1,5 +1,6 @@
 package com.shuang.hadoop.mr;
 
+import com.google.inject.internal.util.$Strings;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileStatus;
@@ -17,7 +18,7 @@ import java.net.URI;
  */
 public class HdfsTest {
     public static void main(String[] args) throws IOException {
-        String uri = "hdfs://192.168.17.218:9000/";
+        String uri = "hdfs://192.168.33.3:9000/";
         Configuration config = new Configuration();
         FileSystem fs = FileSystem.get(URI.create(uri), config);
 
@@ -33,8 +34,11 @@ public class HdfsTest {
         os.flush();
         os.close();
 
+        
         // 显示在hdfs的/user/fkong下指定文件的内容
 //        InputStream is = fs.open(new Path("/user/fkong/test.log"));
 //        IOUtils.copyBytes(is, System.out, 1024, true);
     }
+
+
 }
