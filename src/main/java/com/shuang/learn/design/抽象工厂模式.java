@@ -4,10 +4,10 @@ package com.shuang.learn.design;
 
 public class 抽象工厂模式 {
     public static void main(String[] args) {
-        Factory  factory= new TruckFactory();
+        Factory1  factory= new TruckFactory1();
         factory.wheel().createWheel();
         factory.engine().createEngine();
-        Factory  carFactory= new CarFactory();
+        Factory1  carFactory= new CarFactory1();
         carFactory.wheel().createWheel();
         carFactory.engine().createEngine();
     }
@@ -15,50 +15,50 @@ public class 抽象工厂模式 {
 
 
 //具体工厂
-class TruckFactory implements Factory{
+class TruckFactory1 implements Factory1{
 
     @Override
-    public Wheel wheel() {
-        return new TruckWheel();
+    public Wheel1 wheel() {
+        return new TruckWheel1();
     }
 
     @Override
-    public Engine engine() {
-        return new TruckEngine();
+    public Engine1 engine() {
+        return new TruckEngine1();
     }
 }
 
 //具体工厂
-class CarFactory implements Factory{
+class CarFactory1 implements Factory1{
 
     @Override
-    public Wheel wheel() {
-        return new CarWheel();
+    public Wheel1 wheel() {
+        return new CarWheel1();
     }
 
     @Override
-    public Engine engine() {
-        return new CarEngine();
+    public Engine1 engine() {
+        return new CarEngine1();
     }
 }
 
 //抽象工厂
-interface Factory{
-    Wheel wheel();
-    Engine engine();
+interface Factory1{
+    Wheel1 wheel();
+    Engine1 engine();
 }
 
 //抽象产品
-interface  Wheel{
+interface  Wheel1{
     void createWheel();
 }
 
-interface Engine{
+interface Engine1{
     void createEngine();
 }
 
 //具体产品
-class CarEngine implements Engine{
+class CarEngine1 implements Engine1{
 
     @Override
     public void createEngine() {
@@ -67,7 +67,7 @@ class CarEngine implements Engine{
 }
 
 //具体产品
-class TruckWheel implements Wheel{
+class TruckWheel1 implements Wheel1{
     @Override
     public void createWheel() {
         System.out.println("开始建卡车车轮");
@@ -75,7 +75,7 @@ class TruckWheel implements Wheel{
 }
 
 //具体产品
-class TruckEngine implements Engine{
+class TruckEngine1 implements Engine1{
 
     @Override
     public void createEngine() {
@@ -84,7 +84,7 @@ class TruckEngine implements Engine{
 }
 
 //具体产品
-class CarWheel implements Wheel{
+class CarWheel1 implements Wheel1{
     @Override
     public void createWheel() {
         System.out.println("开始建轿车车轮");
