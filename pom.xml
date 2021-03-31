@@ -14,7 +14,7 @@
         <tomcat.version>9.0.7</tomcat.version>
         <hibernate.version>5.2.16.Final</hibernate.version>
         <hikaricp.version>3.1.0</hikaricp.version>
-        <guava.version>24.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <logstash-logback-encoder.version>5.0</logstash-logback-encoder.version>
         <spring-cloud.version>Finchley.RC2</spring-cloud.version>
         <hadoopVersion>2.9.2</hadoopVersion>
